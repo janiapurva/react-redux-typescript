@@ -1,28 +1,15 @@
+import { ActionType } from "../action-types";
+import {Action} from "../actions/index"
+
 
 const intialState = 0;
-
-// define action type for typeScript
-interface DepositAction {
-type: "deposit"
-payload: number
-}
-interface WithdrawAction {
-  type: "withdraw"
-  paload: number
-}
-
-interface BankruptAction {
-  type: "bankrupt"
-}
-
-
 const reducer = (state: number = intialState,action : Action) => {
 switch (action.type){
-  case "deposit":
+  case ActionType.DEPOSIT:
     return state + action.payload;
-    case "withdraw":
+    case ActionType.WITHDRAW:
       return state - action.payload;
-      case "bankrupt":
+      case ActionType.BANKRUPT:
       return 0;
       default:
         return state
